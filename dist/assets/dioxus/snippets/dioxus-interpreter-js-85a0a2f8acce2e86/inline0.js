@@ -206,31 +206,7 @@ function truthy(val) {
             root.appendChild(els[k]);
         }
     }
-    const attr = [];
-                    let attr_cache_hit, attr_cache_idx;
-                    function get_attr() {
-                        attr_cache_idx = u8buf[u8bufp++];
-                        if(attr_cache_idx & 128){
-                            attr_cache_hit=s.substring(sp,sp+=u8buf[u8bufp++]);
-                            attr[attr_cache_idx&4294967167]=attr_cache_hit;
-                            return attr_cache_hit;
-                        }
-                        else{
-                            return attr[attr_cache_idx&4294967167];
-                        }
-                    }let u8buf,u8bufp;let u32buf,u32bufp;const ns_cache = [];
-                    let ns_cache_cache_hit, ns_cache_cache_idx;
-                    function get_ns_cache() {
-                        ns_cache_cache_idx = u8buf[u8bufp++];
-                        if(ns_cache_cache_idx & 128){
-                            ns_cache_cache_hit=s.substring(sp,sp+=u8buf[u8bufp++]);
-                            ns_cache[ns_cache_cache_idx&4294967167]=ns_cache_cache_hit;
-                            return ns_cache_cache_hit;
-                        }
-                        else{
-                            return ns_cache[ns_cache_cache_idx&4294967167];
-                        }
-                    }let s = "";let lsp,sp,sl; let c = new TextDecoder();let u16buf,u16bufp;const evt = [];
+    const evt = [];
                     let evt_cache_hit, evt_cache_idx;
                     function get_evt() {
                         evt_cache_idx = u8buf[u8bufp++];
@@ -242,8 +218,32 @@ function truthy(val) {
                         else{
                             return evt[evt_cache_idx&4294967167];
                         }
-                    }
-            let field,len,event_name,bubbles,ns,id,value,ptr;
+                    }let u32buf,u32bufp;let u8buf,u8bufp;const attr = [];
+                    let attr_cache_hit, attr_cache_idx;
+                    function get_attr() {
+                        attr_cache_idx = u8buf[u8bufp++];
+                        if(attr_cache_idx & 128){
+                            attr_cache_hit=s.substring(sp,sp+=u8buf[u8bufp++]);
+                            attr[attr_cache_idx&4294967167]=attr_cache_hit;
+                            return attr_cache_hit;
+                        }
+                        else{
+                            return attr[attr_cache_idx&4294967167];
+                        }
+                    }let s = "";let lsp,sp,sl; let c = new TextDecoder();const ns_cache = [];
+                    let ns_cache_cache_hit, ns_cache_cache_idx;
+                    function get_ns_cache() {
+                        ns_cache_cache_idx = u8buf[u8bufp++];
+                        if(ns_cache_cache_idx & 128){
+                            ns_cache_cache_hit=s.substring(sp,sp+=u8buf[u8bufp++]);
+                            ns_cache[ns_cache_cache_idx&4294967167]=ns_cache_cache_hit;
+                            return ns_cache_cache_hit;
+                        }
+                        else{
+                            return ns_cache[ns_cache_cache_idx&4294967167];
+                        }
+                    }let u16buf,u16bufp;
+            let event_name,bubbles,field,ns,value,len,id,ptr;
             export  function create(r){
                 d=r;
             }
@@ -256,15 +256,15 @@ function truthy(val) {
                     ls=m.getUint32(d+6*4,true);
                 }
                 p=ls;
-                if ((metaflags>>>5)&1){
-                t = m.getUint32(d+5*4,true);
-                u8buf=new Uint8Array(m.buffer,t,((m.buffer.byteLength-t)-(m.buffer.byteLength-t)%1)/1);
-            }
-            u8bufp=0;if ((metaflags>>>3)&1){
+                if ((metaflags>>>3)&1){
                 t = m.getUint32(d+3*4,true);
                 u32buf=new Uint32Array(m.buffer,t,((m.buffer.byteLength-t)-(m.buffer.byteLength-t)%4)/4);
             }
-            u32bufp=0;if (metaflags&1){
+            u32bufp=0;if ((metaflags>>>5)&1){
+                t = m.getUint32(d+5*4,true);
+                u8buf=new Uint8Array(m.buffer,t,((m.buffer.byteLength-t)-(m.buffer.byteLength-t)%1)/1);
+            }
+            u8bufp=0;if (metaflags&1){
                 lsp = m.getUint32(d+1*4,true);
             }
             if ((metaflags>>>2)&1) {

@@ -1,6 +1,5 @@
 use super::item::ItemCard;
 use dioxus::prelude::*;
-use dioxus_signals::*;
 
 #[derive(Clone, Copy, Default)]
 pub struct ApplicationData {
@@ -9,11 +8,10 @@ pub struct ApplicationData {
 }
 
 impl ApplicationData {
-    pub fn new(list: Signal<Vec<ItemCard>>, currentCard: Signal<usize>) -> Self {
-        Self { list, currentCard }
-    }
-
-    pub fn use_app_data(cx: &ScopeState) -> ApplicationData {
-        *use_context(cx).unwrap()
+    pub fn new() -> Self {
+        Self {
+            list: Signal::new(vec![] as Vec<ItemCard>),
+            currentCard: Signal::new(0 as usize),
+        }
     }
 }
