@@ -1,5 +1,5 @@
-use crate::ui::pages::error_page::Err404;
-use crate::ui::pages::home::Home;
+use crate::components::error_page::Err404;
+use crate::components::home_page::home::Home;
 use dioxus::prelude::*;
 
 #[derive(Routable, Clone, Debug, PartialEq)]

@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
+use super::item_card_ui::ItemCardUi;
 use crate::models::app_state::ApplicationData;
 use crate::models::item::ItemCard;
-use crate::ui::components::item_card_ui::ItemCardUi;
 use dioxus::prelude::*;
 
 #[component]

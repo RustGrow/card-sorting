@@ -1,8 +1,8 @@
 #![allow(non_snake_case)]
 mod app;
+mod components;
 mod models;
 pub mod route;
-mod ui;
 use dioxus::prelude::*;
 use log::LevelFilter;
 
