@@ -6,7 +6,6 @@ use dioxus::prelude::*;
 #[component]
 pub fn ItemCardUi(card: ItemCard, id: usize, color: &'static str) -> Element {
     let mut data = use_context::<ApplicationData>();
-    // let mut list = data.list;
     let mut dragStartState = data.currentCard;
     let mut dragOverBg = use_signal(|| false);
     let opacity = use_signal(|| false);
@@ -34,7 +33,9 @@ pub fn ItemCardUi(card: ItemCard, id: usize, color: &'static str) -> Element {
             prevent_default: "ondrop",
             ondrop: move |_| {
                 dragOverBg.set(false);
-                data.list.write().swap(id, dragStartState());
+                if id != dragStartState() {
+                    data.list.write().swap(id, dragStartState());
+                }
                 let dragStartStateID = dragStartState();
                 log::info!("Swap DropCardID! {id:?} dragStartStateID {dragStartStateID:?}");
             },
