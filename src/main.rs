@@ -1,12 +1,23 @@
 #![allow(non_snake_case)]
-mod app;
 mod components;
 mod models;
 pub mod route;
+use crate::models::app_state::ApplicationData;
+use crate::route::Route;
 use dioxus::prelude::*;
-use log::LevelFilter;
+use dioxus_logger::tracing::{info, Level};
 
+pub const STYLE: &str = asset!("./assets/tailwind.css");
 fn main() {
-    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
-    launch(app::app);
+    dioxus_logger::init(Level::INFO).expect("failed to init logger");
+    info!("starting app");
+    launch(App);
+}
+
+pub fn App() -> Element {
+    use_context_provider(ApplicationData::new);
+    rsx! {
+        head::Link { rel: "stylesheet", href: STYLE }
+        Router::<Route> {}
+    }
 }

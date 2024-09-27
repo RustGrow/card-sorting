@@ -24,7 +24,7 @@ title = "Card-drag & drop"
 reload_html = true
 
 # which files or dirs will be watcher monitoring
-watch_path = ["src", "public"]
+watch_path = ["src", "asset"]
 
 # uncomment line below if using Router
 index_on_404 = true
@@ -33,7 +33,7 @@ index_on_404 = true
 [web.resource]
 
 # CSS style file
-style = ["/tailwind.css"]
+style = []
 
 # Javascript code file
 script = []
