@@ -1,3 +1,5 @@
+Welcome to the Simple Card Sorting (Drag and Drop) example, created using version 0.6 of the GUI library for Rust, [Dioxus](https://dioxuslabs.com/)!
+
 ### Important. This project uses the web platform
 # Quick start
 1. Reinstall the CLI to the git version.
