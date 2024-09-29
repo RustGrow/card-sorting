@@ -27,14 +27,12 @@ pub fn ItemCardUi(card: ItemCard, id: usize, color: &'static str) -> Element {
             ondragleave: move |_| {
                 dragOverBg.set(false);
             },
-            // prevent_default: "ondragover",
-            ondragover: move |evt| {
-                evt.prevent_default();
+            ondragover: move |ev| {
+                ev.prevent_default();
                 dragOverBg.set(true);
             },
-            // prevent_default: "ondrop",
-            ondrop: move |evt| {
-                evt.prevent_default();
+            ondrop: move |ev| {
+                ev.prevent_default();
                 dragOverBg.set(false);
                 if id != dragStartState() {
                     data.list.write().swap(id, dragStartState());

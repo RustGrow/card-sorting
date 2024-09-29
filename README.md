@@ -9,7 +9,7 @@ cargo install --git https://github.com/dioxuslabs/dioxus dioxus-cli --locked --f
 ```
 2. Clone this repository
 ```bash
-https://github.com/DioxusGrow/crabsburger.git
+git clone https://github.com/DioxusGrow/card-sorting
 ```
 and 👇
 
