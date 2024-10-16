@@ -11,13 +11,13 @@ pub const STYLE: &str = asset!("./assets/tailwind.css");
 fn main() {
     dioxus_logger::init(Level::INFO).expect("failed to init logger");
     info!("starting app");
-    launch(App);
+    dioxus::launch(App);
 }
 
 pub fn App() -> Element {
     use_context_provider(ApplicationData::new);
     rsx! {
-        head::Link { rel: "stylesheet", href: STYLE }
+        document::Link { rel: "stylesheet", href: STYLE }
         Router::<Route> {}
     }
 }
